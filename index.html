@@ -24,30 +24,34 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1 class="hero-heading">Kimi Storsjö</h1>
-        <span class="hero-heading-line"></span>
-        <p class="hero-tagline">Building things that matter, one idea at a time.</p>
-        <a href="about.html" class="cta-btn">Learn more</a>
-      </div>
-      <div class="hero-image">
+
+    <!-- Hero + Banner share a wrapper so the photo can straddle both -->
+    <div class="hero-banner-wrap">
+
+      <section class="hero">
+        <div class="hero-left">
+          <h1 class="hero-heading">Kimi Storsjö</h1>
+          <span class="hero-heading-line"></span>
+          <p class="hero-tagline">Building things that matter, one idea at a time.</p>
+          <a href="about.html" class="cta-btn">Learn more</a>
+        </div>
+        <div class="hero-right"><!-- photo floats here via absolute --></div>
+      </section>
+
+      <section class="banner"></section>
+
+      <!-- Single photo instance, floats between hero and banner -->
+      <div class="floating-photo">
         <img src="LinkedIn Profile Picture-4.png" alt="Kimi Storsjö" />
       </div>
-    </section>
 
-    <!-- Banner -->
-    <section class="banner">
-      <div class="banner-photo">
-        <img src="LinkedIn Profile Picture-4.png" alt="Kimi Storsjö" />
-      </div>
-    </section>
+    </div>
 
-    <!-- Stats strip -->
+    <!-- Stats -->
     <section class="stats">
       <div class="stats-inner">
         <div class="stat-item">
-          <span class="stat-highlight">2+</span>
+          <span class="stat-highlight">1,5+</span>
           <span class="stat-label">Years Freelancing</span>
         </div>
         <div class="stat-divider"></div>
@@ -70,7 +74,7 @@
 
     <!-- Companies -->
     <section class="companies">
-      <p class="companies-label">Experience with</p>
+      <h2 class="companies-heading">Companies I Work With</h2>
       <div class="companies-logos">
         <span class="company-name">FlashHub GmbH</span>
         <span class="company-name">Bright Solutions GmbH</span>
