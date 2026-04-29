@@ -172,9 +172,18 @@ main {
   animation: fadeUp 0.8s ease forwards 0.15s;
 }
 
+.hero-heading-wrap {
+  display: table;
+  margin-bottom: 0;
+}
+
+.hero-heading-wrap .hero-heading {
+  margin-bottom: 16px;
+}
+
 .hero-heading-line {
   display: block;
-  width: 66%;
+  width: 66.67%;
   height: 2px;
   background: var(--accent);
   border-radius: 1px;
