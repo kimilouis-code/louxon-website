@@ -121,28 +121,37 @@ main {
   width: 100%;
 }
 
-/* ─── Hero + Banner wrapper ────────────────────────────────── */
-.hero-banner-wrap {
-  position: relative;
-}
-
 /* ─── Hero ─────────────────────────────────────────────────── */
 .hero {
+  position: relative;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
   background: var(--bg);
+  display: flex;
+  align-items: center;
 }
 
 .hero-left {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 120px 56px 80px 80px;
+  width: 50%;
 }
 
-.hero-right {
-  /* empty column — photo floats here via absolute */
+.hero-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: top center;
+  z-index: 1;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,1) 65%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,1) 65%);
 }
 
 .hero-heading {
@@ -210,36 +219,6 @@ main {
 .banner {
   height: 400px;
   background: var(--banner);
-}
-
-/* ─── Floating Photo ───────────────────────────────────────── */
-/*
- * Positioned so the bottom half sits in the banner, top half in the hero.
- * Centered horizontally within the right half of the page (75% from left).
- */
-.floating-photo {
-  position: absolute;
-  bottom: 200px;           /* 200px up from bottom of banner = midpoint */
-  left: calc(75% - 190px); /* centered in right column (190px = half of 380px) */
-  width: 380px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.floating-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  mask-image:
-    linear-gradient(to right,  rgba(0,0,0,0) 0%,  rgba(0,0,0,1) 12%),
-    linear-gradient(to left,   rgba(0,0,0,0) 0%,  rgba(0,0,0,1) 12%),
-    linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image:
-    linear-gradient(to right,  rgba(0,0,0,0) 0%,  rgba(0,0,0,1) 12%),
-    linear-gradient(to left,   rgba(0,0,0,0) 0%,  rgba(0,0,0,1) 12%),
-    linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-  mask-composite: intersect;
-  -webkit-mask-composite: destination-in;
 }
 
 /* ─── Stats ─────────────────────────────────────────────────── */
@@ -400,19 +379,11 @@ main {
   .hero-heading {
     font-size: 64px;
   }
-
-  .floating-photo {
-    width: 300px;
-    left: calc(75% - 150px);
-  }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
   .hero-left {
+    width: 70%;
     padding: 100px 32px 60px;
   }
 
@@ -420,8 +391,8 @@ main {
     font-size: 52px;
   }
 
-  .floating-photo {
-    display: none;
+  .hero-photo {
+    opacity: 0.35;
   }
 
   .stats-inner {
