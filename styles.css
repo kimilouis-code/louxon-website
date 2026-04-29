@@ -124,8 +124,9 @@ main {
 /* ─── Hero ─────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 74vh;
-  min-height: 500px;
+  height: 75vh;
+  min-height: 480px;
+  max-height: 800px;
   overflow: hidden;
   background: var(--bg);
   display: flex;
@@ -148,8 +149,9 @@ main {
   top: 0;
   height: 100%;
   width: auto;
-  object-fit: cover;
-  object-position: top center;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: top right;
   z-index: 1;
   mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,1) 65%);
   -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,1) 65%);
@@ -158,11 +160,12 @@ main {
 .hero-heading {
   font-family: 'Playfair Display', serif;
   font-size: 68px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
   white-space: nowrap;
-  color: var(--text);
+  color: #F0EFEB;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.7), 0 1px 6px rgba(0,0,0,0.5);
   margin-bottom: 16px;
   opacity: 0;
   transform: translateY(24px);
@@ -316,6 +319,10 @@ main {
   align-items: center;
   gap: 44px;
   text-align: center;
+}
+
+.bio-inner .cta-btn {
+  align-self: center;
 }
 
 .bio-text {
