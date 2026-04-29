@@ -56,16 +56,28 @@ a {
 }
 
 .logo {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--text);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   transition: opacity 0.2s;
 }
 
 .logo:hover {
   opacity: 0.75;
+}
+
+.logo-line {
+  display: block;
+  width: 66%;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 1px;
 }
 
 .nav {
@@ -111,13 +123,15 @@ main {
 
 .hero {
   min-height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   padding: 0 48px;
+  gap: 48px;
 }
 
 .hero-content {
-  max-width: 720px;
+  max-width: 580px;
 }
 
 .hero-heading {
@@ -127,10 +141,22 @@ main {
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   opacity: 0;
   transform: translateY(24px);
   animation: fadeUp 0.8s ease forwards 0.15s;
+}
+
+.hero-heading-line {
+  display: block;
+  width: 66%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.8s ease forwards 0.25s;
 }
 
 .hero-tagline {
@@ -141,28 +167,50 @@ main {
   letter-spacing: 0.01em;
   opacity: 0;
   transform: translateY(24px);
-  animation: fadeUp 0.8s ease forwards 0.35s;
+  animation: fadeUp 0.8s ease forwards 0.4s;
 }
 
 .cta-btn {
   display: inline-block;
   padding: 14px 36px;
   border: 1px solid var(--accent);
-  color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 2px;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   opacity: 0;
   transform: translateY(24px);
-  animation: fadeUp 0.8s ease forwards 0.55s;
+  animation: fadeUp 0.8s ease forwards 0.6s;
 }
 
 .cta-btn:hover {
-  background: var(--accent);
-  color: var(--bg);
+  background: transparent;
+  color: var(--accent);
+}
+
+/* ─── Hero Image ───────────────────────────────────────────── */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.hero-image img {
+  height: 90vh;
+  width: 100%;
+  max-width: 480px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
 }
 
 /* ─── Footer ───────────────────────────────────────────────── */
@@ -207,6 +255,23 @@ main {
 }
 
 /* ─── Responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 120px 24px 48px;
+    gap: 40px;
+  }
+
+  .hero-image {
+    height: 55vw;
+    align-items: center;
+  }
+
+  .hero-image img {
+    height: 100%;
+  }
+}
+
 @media (max-width: 640px) {
   .site-header {
     padding: 20px 24px;
@@ -214,10 +279,6 @@ main {
 
   .nav {
     gap: 24px;
-  }
-
-  .hero {
-    padding: 0 24px;
   }
 
   .site-footer {
