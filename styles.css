@@ -124,7 +124,8 @@ main {
 /* ─── Hero ─────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 74vh;
+  min-height: 500px;
   overflow: hidden;
   background: var(--bg);
   display: flex;
@@ -137,7 +138,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 56px 80px 80px;
+  padding: 100px 56px 60px 80px;
   width: 50%;
 }
 
@@ -156,7 +157,7 @@ main {
 
 .hero-heading {
   font-family: 'Playfair Display', serif;
-  font-size: 80px;
+  font-size: 68px;
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -215,18 +216,10 @@ main {
   color: var(--accent);
 }
 
-/* ─── Banner ───────────────────────────────────────────────── */
-.banner {
-  height: 400px;
-  background: var(--banner);
-}
-
 /* ─── Stats ─────────────────────────────────────────────────── */
 .stats {
-  background: var(--bg);
-  padding: 56px 48px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: var(--banner);
+  padding: 48px 48px;
 }
 
 .stats-inner {
@@ -377,7 +370,7 @@ main {
 /* ─── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero-heading {
-    font-size: 64px;
+    font-size: 56px;
   }
 }
 
